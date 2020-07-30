@@ -1,23 +1,22 @@
 package com.webapp.loginpagetests;
 
-
-import com.webapp.base.BaseTest;
+import com.webapp.base.TestUtilities;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class NegativeLogInTests extends BaseTest {
+public class NegativeLogInTests extends TestUtilities {
 
 
     @Parameters({"username", "password", "expectedMessage"})
     @Test(priority = 1)
     public void negativeTest(String username, String password, String expectedErrorMessage) {
-        System.out.println("Starting negativeTest");
+        log.info("Starting negativeTest");
 
         // open main page
         String url = "http://the-internet.herokuapp.com/";
         driver.get(url);
-        System.out.println("Main page is opened.");
+        log.info("Main page is opened.");
 
         // Click on Form Authentication link
         driver.findElement(By.linkText("Form Authentication")).click();

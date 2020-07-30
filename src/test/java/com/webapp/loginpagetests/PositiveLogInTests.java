@@ -1,6 +1,6 @@
 package com.webapp.loginpagetests;
 
-import com.webapp.base.BaseTest;
+import com.webapp.base.TestUtilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,15 +8,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class PositiveLogInTests extends BaseTest {
+public class PositiveLogInTests extends TestUtilities {
     @Test
     public void logInTest() {
-        System.out.println("Starting logIn test");
+        log.info("Starting logIn test");
 
         // open main page
         String url = "http://the-internet.herokuapp.com/";
         driver.get(url);
-        System.out.println("Main page is opened.");
+        log.info("Main page is opened.");
 
         // Click on Form Authentication link
         driver.findElement(By.linkText("Form Authentication")).click();
@@ -26,6 +26,8 @@ public class PositiveLogInTests extends BaseTest {
         driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
+
+        sleep(3000);
 
         // push log in button
         WebElement logInButton = driver.findElement(By.className("radius"));
