@@ -1,0 +1,7 @@
+01:14:14.767 [main] INFO  UploadTests - Starting imageUploadTest
+01:14:14.774 [main] INFO  UploadTests - Opening page: http://the-internet.herokuapp.com/upload
+01:14:18.600 [main] INFO  UploadTests - Page opened!
+01:14:18.600 [main] INFO  UploadTests - Selecting 'Intel-logo.jpg' file from Files folder
+01:14:18.718 [main] INFO  UploadTests - File selected
+01:14:18.718 [main] INFO  UploadTests - Clicking on upload button
+01:14:21.623 [main] INFO  UploadTests - Uploaded files: Intel-logo.jpg

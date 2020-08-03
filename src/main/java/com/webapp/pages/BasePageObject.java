@@ -1,15 +1,15 @@
 package com.webapp.pages;
 
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class BasePageObject {
 
@@ -33,6 +33,16 @@ public class BasePageObject {
      */
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
+    }
+
+    /** Get title of current page */
+    public String getCurrentPageTitle() {
+        return driver.getTitle();
+    }
+
+    /** Get source of current page */
+    public String getCurrentPageSource() {
+        return driver.getPageSource();
     }
 
     /**
@@ -88,5 +98,54 @@ public class BasePageObject {
             }
             attempts++;
         }
+    }
+
+    /** Wait for alert present and then switch to it */
+    protected Alert switchToAlert() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.alertIsPresent());
+        return driver.switchTo().alert();
+    }
+
+    public void switchToWindowWithTitle(String expectedTitle) {
+        // Switching to new window
+        String firstWindow = driver.getWindowHandle();
+
+        Set<String> allWindows = driver.getWindowHandles();
+        Iterator<String> windowsIterator = allWindows.iterator();
+
+        while (windowsIterator.hasNext()) {
+            String windowHandle = windowsIterator.next().toString();
+            if (!windowHandle.equals(firstWindow)) {
+                driver.switchTo().window(windowHandle);
+                if (getCurrentPageTitle().equals(expectedTitle)) {
+                    break;
+                }
+            }
+        }
+    }
+
+    /** Switch to iFrame using it's locator */
+    protected void switchToFrame(By frameLocator) {
+        driver.switchTo().frame(find(frameLocator));
+    }
+
+    /** Press Key on locator */
+    protected void pressKey(By locator, Keys key) {
+        find(locator).sendKeys(key);
+    }
+
+    /** Press Key using Actions class */
+    public void pressKeyWithActions(Keys key) {
+        log.info("Pressing " + key.name() + " using Actions class");
+        Actions action = new Actions(driver);
+        action.sendKeys(key).build().perform();
+    }
+
+    /** Perform scroll to the bottom */
+    public void scrollToBottom() {
+        log.info("Scrolling to the bottom of the page");
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 }
