@@ -1,0 +1,8 @@
+17:59:53.164 [main] INFO  CheckboxesTests - Close driver
+18:31:44.906 [main] INFO  DropdownTests - Create driver: chrome
+18:31:51.715 [main] INFO  DropdownTests - Starting optionTwoTest
+18:31:51.718 [main] INFO  DropdownTests - Opening page: http://the-internet.herokuapp.com/
+18:31:57.908 [main] INFO  DropdownTests - Page opened!
+18:31:57.909 [main] INFO  DropdownTests - Clicking Dropdown link on Welcome Page
+18:31:58.530 [main] INFO  DropdownTests - Selecting option 2 from dropdown
+18:31:58.642 [main] INFO  DropdownTests - Option 2 is selected in dropdown

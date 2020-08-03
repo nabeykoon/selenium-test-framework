@@ -1,0 +1,4 @@
+20:59:55.272 [TestNG-tests-3] INFO  NegativePasswordTest-CH - Clicking Form Authentication link on Welcome Page
+20:59:55.442 [TestNG-tests-4] INFO  NegativePasswordTest-FF - Executing LogIn with username [tomsmith] and password [incorrectPassword]
+20:59:55.464 [TestNG-tests-1] INFO  NegativeUsernameTest-CH - Executing LogIn with username [incorrectUsername] and password [SuperSecretPassword!]
+20:59:55.531 [TestNG-tests-2] INFO  NegativeUsernameTest-FF - Executing LogIn with username [incorrectUsername] and password [SuperSecretPassword!]

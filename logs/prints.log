@@ -1,4 +1,1 @@
-21:48:08.283 [main] INFO  PositiveLogInTest - Create driver: chrome
-21:48:13.835 [main] INFO  PositiveLogInTest - Starting logIn test
-21:48:17.019 [main] INFO  PositiveLogInTest - Main page is opened.
-21:48:21.781 [main] INFO  PositiveLogInTest - Close driver
+18:31:58.645 [main] INFO  DropdownTests - Close driver
