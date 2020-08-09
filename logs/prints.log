@@ -1,2 +1,6 @@
-01:16:29.282 [main] INFO  HorizontalSliderTests-CH - Page opened!
-01:16:43.444 [main] INFO  HorizontalSliderTests-CH - Moving slider to 3.5
+18:10:13.496 [TestNG-tests-1] INFO  negativeLogInTest-CH - Opening page: http://the-internet.herokuapp.com/
+18:10:19.755 [TestNG-tests-1] INFO  negativeLogInTest-CH - Page opened!
+18:10:19.756 [TestNG-tests-1] INFO  negativeLogInTest-CH - Welcome page is opened.
+18:10:19.756 [TestNG-tests-1] INFO  negativeLogInTest-CH - Clicking Form Authentication link on Welcome Page
+18:10:20.675 [TestNG-tests-1] INFO  negativeLogInTest-CH - Executing LogIn with username [tomsmith] and password []
+18:10:21.774 [TestNG-tests-1] INFO  negativeLogInTest-CH - Close driver

@@ -1,0 +1,5 @@
+18:10:05.793 [TestNG-tests-1] INFO  negativeLogInTest-CH - Clicking Form Authentication link on Welcome Page
+18:10:06.667 [TestNG-tests-1] INFO  negativeLogInTest-CH - Executing LogIn with username [] and password [SuperSecretPassword!]
+18:10:07.757 [TestNG-tests-1] INFO  negativeLogInTest-CH - Close driver
+18:10:08.353 [TestNG-tests-1] INFO  negativeLogInTest-CH - Create driver: chrome
+18:10:13.496 [TestNG-tests-1] INFO  negativeLogInTest-CH - Starting negativeLogInTest #5 for empty password
