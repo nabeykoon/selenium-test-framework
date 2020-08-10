@@ -11,18 +11,20 @@ import org.testng.annotations.Test;
 public class PositiveLogInTests extends TestUtilities {
     @Test
     public void logInTest() {
-        log.info("Starting logIn test");
 
         // open main page
         WelcomePage welcomePage = new WelcomePage(driver, log);
         welcomePage.openPage();
+        takeScreenshot("Welcome page opened");
         log.info("Welcome page is opened.");
 
         // Click on Form Authentication link
         LoginPage loginPage = welcomePage.clickFormAuthenticationLink();
+        takeScreenshot("Login page opened");
 
         // Log in
         SecureAreaPage secureAreaPage = loginPage.logIn("tomsmith", "SuperSecretPassword!");
+        takeScreenshot("Secure page opened");
 
         // verifications
         // Correct url is appeared

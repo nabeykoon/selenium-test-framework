@@ -1,5 +1,7 @@
-18:10:05.793 [TestNG-tests-1] INFO  negativeLogInTest-CH - Clicking Form Authentication link on Welcome Page
-18:10:06.667 [TestNG-tests-1] INFO  negativeLogInTest-CH - Executing LogIn with username [] and password [SuperSecretPassword!]
-18:10:07.757 [TestNG-tests-1] INFO  negativeLogInTest-CH - Close driver
-18:10:08.353 [TestNG-tests-1] INFO  negativeLogInTest-CH - Create driver: chrome
-18:10:13.496 [TestNG-tests-1] INFO  negativeLogInTest-CH - Starting negativeLogInTest #5 for empty password
+22:20:36.536 [main] INFO  PositiveLogInTest - Create driver: chrome
+22:20:42.095 [main] INFO  PositiveLogInTest - Starting logIn test
+22:20:42.098 [main] INFO  PositiveLogInTest - Opening page: http://the-internet.herokuapp.com/
+22:20:46.552 [main] INFO  PositiveLogInTest - Page opened!
+22:20:47.068 [main] INFO  PositiveLogInTest - Welcome page is opened.
+22:20:47.068 [main] INFO  PositiveLogInTest - Clicking Form Authentication link on Welcome Page
+22:20:49.152 [main] INFO  PositiveLogInTest - Executing LogIn with username [tomsmith] and password [SuperSecretPassword!]

@@ -16,7 +16,7 @@
                 <version>2.22.0</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${grouping.xml}</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/TestSuites/SeperateTestSuites/EditorTestSuite.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -29,11 +29,14 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <release>11</release>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+
 
     <dependencies>
         <dependency>
@@ -104,5 +107,6 @@
         </dependency>
 
     </dependencies>
+
 
 </project>

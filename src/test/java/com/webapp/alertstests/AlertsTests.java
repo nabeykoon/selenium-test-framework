@@ -5,12 +5,14 @@ import com.webapp.pages.JavaScriptAlertsPage;
 import com.webapp.pages.WelcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class AlertsTests extends TestUtilities {
 
 	@Test
 	public void jsAlertTest() {
-		log.info("Starting jsAlertTest");
+		//Following log removed since it is handled from TestLister
+		//log.info("Starting jsAlertTest");
 
 		// open main page
 		WelcomePage welcomePage = new WelcomePage(driver, log);
@@ -44,7 +46,9 @@ public class AlertsTests extends TestUtilities {
 
 	@Test
 	public void jsDismissTest() {
-		log.info("Starting jsDismissTest");
+
+		//Following log removed since it is handled from TestLister
+		//log.info("Starting jsDismissTest");
 
 		// open main page
 		WelcomePage welcomePage = new WelcomePage(driver, log);
@@ -77,7 +81,10 @@ public class AlertsTests extends TestUtilities {
 
 	@Test
 	public void jsPromptTest() {
-		log.info("Starting jsDismissTest");
+		//Following log removed since it is handled from TestLister
+		//log.info("Starting jsPromptTest");
+		SoftAssert softAssert = new SoftAssert();
+
 
 		// open main page
 		WelcomePage welcomePage = new WelcomePage(driver, log);
@@ -100,12 +107,13 @@ public class AlertsTests extends TestUtilities {
 		sleep(1000);
 		// Verifications
 		// 1 - Alert text is expected
-		Assert.assertTrue(alertMessage.equals("I am a JS prompt"),
+		softAssert.assertTrue(alertMessage.equals("I am a JS prompt"),
 				"Alert message is not expected. \nShould be 'I am a JS prompt', but it is '" + alertMessage + "'");
 
 		// 2 - Result text is expected
-		Assert.assertTrue(result.equals("You entered: Hello Alert, it's Nadeera here"),
+		softAssert.assertTrue(result.equals("You entered: Hello Alert, it's Nadeera here"),
 				"result is not expected. \nShould be 'You entered: Hello Alert, it's Nadeera here', but it is '" + result
 						+ "'");
+		softAssert.assertAll();
 	}
 }
