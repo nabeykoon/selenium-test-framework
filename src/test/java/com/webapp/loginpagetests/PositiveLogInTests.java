@@ -4,7 +4,6 @@ import com.webapp.base.TestUtilities;
 import com.webapp.pages.LoginPage;
 import com.webapp.pages.SecureAreaPage;
 import com.webapp.pages.WelcomePage;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,16 +14,16 @@ public class PositiveLogInTests extends TestUtilities {
         // open main page
         WelcomePage welcomePage = new WelcomePage(driver, log);
         welcomePage.openPage();
-        takeScreenshot("Welcome page opened");
+        takeScreenshotInTest("Welcome page opened", driver);
         log.info("Welcome page is opened.");
 
         // Click on Form Authentication link
         LoginPage loginPage = welcomePage.clickFormAuthenticationLink();
-        takeScreenshot("Login page opened");
+        takeScreenshotInTest("Login page opened", driver);
 
         // Log in
         SecureAreaPage secureAreaPage = loginPage.logIn("tomsmith", "SuperSecretPassword!");
-        takeScreenshot("Secure page opened");
+        takeScreenshotInTest("Secure page opened", driver);
 
         // verifications
         // Correct url is appeared

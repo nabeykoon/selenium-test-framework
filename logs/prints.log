@@ -1,3 +1,2 @@
-02:05:39.880 [main] INFO  EditorTests - [Test defaultEditorValueTest passed]
-02:05:39.882 [main] INFO  EditorTests - Close driver
-02:05:40.482 [main] INFO  EditorTests - [ALL EditorTests FINISHED]
+20:41:15.343 [TestNG-test=AlertsTests-3] INFO  AlertsTests - Close driver
+20:41:15.454 [TestNG-test=AlertsTests-2] INFO  AlertsTests - Close driver

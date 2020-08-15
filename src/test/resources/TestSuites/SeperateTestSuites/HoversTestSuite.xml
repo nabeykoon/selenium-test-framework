@@ -2,7 +2,6 @@
 
 <suite name="HoversTestSuite" verbose="1">
 
-
 	<test name="HoversTests-CH">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>

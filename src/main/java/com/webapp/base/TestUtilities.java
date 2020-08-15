@@ -3,6 +3,7 @@ package com.webapp.base;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.testng.annotations.DataProvider;
@@ -14,6 +15,8 @@ import java.util.Date;
 import java.util.List;
 
 public class TestUtilities extends BaseTest {
+
+    protected String basePath;
 
     //STATIC SLEEP IF REQUIRED FOR DEBUGGING. NOT RECOMMENDED TO USE IN TESTS
     protected void sleep(long millis) {
@@ -34,19 +37,43 @@ public class TestUtilities extends BaseTest {
     }
 
     /**
-     * Take screenshot
+     * Generate base path to store screenshot
+     * @return
      */
-    protected void takeScreenshot(String fileName) {
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        String path = System.getProperty("user.dir")
+    protected String getBasePath(String testSuiteName, String testName, String testMethodName){
+        basePath = System.getProperty("user.dir")
                 + File.separator + "test-output"
                 + File.separator + "screenshots"
                 + File.separator + getTodaysDate()
                 + File.separator + testSuiteName
                 + File.separator + testName
                 + File.separator + testMethodName
-                + File.separator + getSystemTime()
-                + " " + fileName + ".png";
+                + File.separator;
+
+        return basePath;
+    }
+
+    /**
+     * Take screenshot from any point of test
+     * @return
+     */
+    protected void takeScreenshotInTest(String fileName, WebDriver driver) {
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String path = getBasePath(testSuiteName, testName,testMethodName) + getSystemTime()+ " " + fileName + ".png";
+        try {
+            FileUtils.copyFile(scrFile, new File(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Take screenshot from TestListener
+     * @return
+     */
+    protected void takeScreenshotInFailure(String basePath, String testMethodName, WebDriver driver) {
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String path = basePath + "Failed screenshot- "+ getSystemTime() + testMethodName + ".png";
         try {
             FileUtils.copyFile(scrFile, new File(path));
         } catch (IOException e) {

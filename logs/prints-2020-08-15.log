@@ -1,0 +1,6 @@
+20:41:14.633 [TestNG-test=AlertsTests-2] INFO  AlertsTests - Page opened!
+20:41:14.636 [TestNG-test=AlertsTests-2] INFO  AlertsTests - Clicking JavaScript Alerts link on Welcome Page
+20:41:14.907 [TestNG-test=AlertsTests-1] INFO  AlertsTests - Page opened!
+20:41:14.907 [TestNG-test=AlertsTests-1] INFO  AlertsTests - Clicking JavaScript Alerts link on Welcome Page
+20:41:15.321 [TestNG-test=AlertsTests-2] INFO  AlertsTests - Clicking on 'Click for JS Confirm' button to open alert
+20:41:15.343 [TestNG-test=AlertsTests-1] INFO  AlertsTests - Close driver
