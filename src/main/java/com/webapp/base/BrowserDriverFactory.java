@@ -7,38 +7,32 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserDriverFactory {
-    private ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
     private String browser;
     private Logger log;
 
-    public BrowserDriverFactory(String browser, Logger log){
-        this.browser = browser.toLowerCase();
+    public BrowserDriverFactory(String browser, Logger log) {
+        this.browser = browser.toLowerCase ();
         this.log = log;
     }
 
-    public WebDriver createDriver(){
+    public static WebDriver createDriver(String browser, Logger log) {
         // Create driver
-        log.info("Create driver: " + browser);
+        log.info ("Create driver: " + browser);
 
-        switch (browser) {
-            case "chrome":
-                //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-                WebDriverManager.chromedriver().setup();
-                driver.set(new ChromeDriver());
-                break;
+        if (browser.equals ("chrome")) {
+            //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+            WebDriverManager.chromedriver ().setup ();
+            return new ChromeDriver ();
+        } else if (browser.equals ("firefox")) {
 
-            case "firefox":
-                //System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
-                WebDriverManager.firefoxdriver().setup();
-                driver.set(new FirefoxDriver());
-                break;
-
-            default:
-                System.out.println("Do not know how to start: " + browser + ", starting chrome.");
-                WebDriverManager.chromedriver().setup();
-                driver.set(new ChromeDriver());
-                break;
+            //System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
+            WebDriverManager.firefoxdriver ().setup ();
+            return new FirefoxDriver ();
+        } else {
+            System.out.println ("Do not know how to start: " + browser + ", starting chrome.");
+            WebDriverManager.chromedriver ().setup ();
+            return new ChromeDriver ();
         }
-        return driver.get();
     }
 }
+

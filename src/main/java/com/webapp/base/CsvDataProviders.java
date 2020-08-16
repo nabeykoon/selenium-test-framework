@@ -18,7 +18,8 @@ import com.opencsv.CSVReader;
 
 public class CsvDataProviders {
 
-	@DataProvider(name = "csvReader")
+	// add parallel = true to @DataProvider annotation to run parallel
+	@DataProvider(name = "csvReader", parallel = true)
 	public static Iterator<Object[]> csvReader(Method method) {
 		List<Object[]> list = new ArrayList<Object[]>();
 		String pathname = "src" + File.separator + "test" + File.separator + "resources" + File.separator

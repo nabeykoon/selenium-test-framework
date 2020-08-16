@@ -13,7 +13,7 @@ public class KeyPressesTests extends TestUtilities {
 		log.info("Starting pressKeyTest");
 
 		// open KeyPressesPage
-		KeyPressesPage keyPressesPage = new KeyPressesPage(driver, log);
+		KeyPressesPage keyPressesPage = new KeyPressesPage(getDriver (), log);
 		keyPressesPage.openPage();
 
 		// Push keyboard key
@@ -32,7 +32,7 @@ public class KeyPressesTests extends TestUtilities {
 		log.info("Starting pressKeyWithActionsTest");
 
 		// open KeyPressesPage
-		KeyPressesPage keyPressesPage = new KeyPressesPage(driver, log);
+		KeyPressesPage keyPressesPage = new KeyPressesPage(getDriver (), log);
 		keyPressesPage.openPage();
 
 		// Push keyboard key

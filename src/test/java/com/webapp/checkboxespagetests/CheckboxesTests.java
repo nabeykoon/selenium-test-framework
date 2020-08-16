@@ -10,20 +10,20 @@ public class CheckboxesTests extends TestUtilities {
 
     @Test
     public void selectingTwoCheckboxesTest() {
-        log.info("Starting selectingTwoCheckboxesTest");
+        log.info ("Starting selectingTwoCheckboxesTest");
 
         // open main page
-        WelcomePage welcomePage = new WelcomePage(driver, log);
-        welcomePage.openPage();
+        WelcomePage welcomePage = new WelcomePage (getDriver (), log);
+        welcomePage.openPage ();
 
         // Click on Checkboxes link
-        CheckboxesPage checkboxesPage = welcomePage.clickCheckboxesLink();
+        CheckboxesPage checkboxesPage = welcomePage.clickCheckboxesLink ();
 
         // Select All Checkboxes
-        checkboxesPage.selectAllCheckboxes();
+        checkboxesPage.selectAllCheckboxes ();
 
         // Verify all checkboxes are checked
-        Assert.assertTrue(checkboxesPage.areAllCheckboxesChecked(), "Not all checkboxes are checked");
+        Assert.assertTrue (checkboxesPage.areAllCheckboxesChecked (), "Not all checkboxes are checked");
 
     }
 

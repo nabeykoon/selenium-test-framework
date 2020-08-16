@@ -1,13 +1,13 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="SmokeTestSuite" verbose="1">
+<suite name="SmokeTestSuite" verbose="1" parallel="tests" thread-count="8">
 
 <!--
     <listeners>
          <listener class-name="com.webapp.base.TestListener"></listener>
      </listeners>
 -->
-    <test name="PositiveLogInTest">
+    <test name="PositiveLogInTest123">
         <classes>
             <class name="com.webapp.loginpagetests.PositiveLogInTests"/>
         </classes>

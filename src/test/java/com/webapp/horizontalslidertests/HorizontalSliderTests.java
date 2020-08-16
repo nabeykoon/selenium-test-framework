@@ -12,7 +12,7 @@ public class HorizontalSliderTests extends TestUtilities {
 		log.info("Starting sliderTest");
 
 		// Open HorizontalSliderPage
-		HorizontalSliderPage horizontalSliderPage = new HorizontalSliderPage(driver, log);
+		HorizontalSliderPage horizontalSliderPage = new HorizontalSliderPage(getDriver (), log);
 		horizontalSliderPage.openPage();
 
 		String value = "3.5";

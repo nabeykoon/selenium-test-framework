@@ -13,7 +13,7 @@ public class DropdownTest extends TestUtilities {
 		log.info("Starting optionTwoTest");
 
 		// open main page
-		WelcomePage welcomePage = new WelcomePage(driver, log);
+		WelcomePage welcomePage = new WelcomePage(getDriver (), log);
 		welcomePage.openPage();
 
 		// Click on Dropdown link

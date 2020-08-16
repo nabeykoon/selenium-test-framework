@@ -16,7 +16,7 @@ public class JSErrorTests extends TestUtilities {
 		SoftAssert softAssert = new SoftAssert();
 
 		// Open JSErrorPage
-		JSErrorPage jSErrorPage = new JSErrorPage(driver, log);
+		JSErrorPage jSErrorPage = new JSErrorPage(getDriver (), log);
 		jSErrorPage.openPage();
 
 		// Get logs

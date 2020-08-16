@@ -12,18 +12,20 @@ public class PositiveLogInTests extends TestUtilities {
     public void logInTest() {
 
         // open main page
-        WelcomePage welcomePage = new WelcomePage(driver, log);
+        WelcomePage welcomePage = new WelcomePage(getDriver (), log);
+        log.info ("Thread id of logInTest " + Thread.currentThread().getId());
+        log.info ("Driver Hash code of logInTest " + getDriver ().hashCode ());
         welcomePage.openPage();
-        takeScreenshotInTest("Welcome page opened", driver);
+        takeScreenshotInTest("Welcome page opened", getDriver ());
         log.info("Welcome page is opened.");
 
         // Click on Form Authentication link
         LoginPage loginPage = welcomePage.clickFormAuthenticationLink();
-        takeScreenshotInTest("Login page opened", driver);
+        takeScreenshotInTest("Login page opened", getDriver ());
 
         // Log in
         SecureAreaPage secureAreaPage = loginPage.logIn("tomsmith", "SuperSecretPassword!");
-        takeScreenshotInTest("Secure page opened", driver);
+        takeScreenshotInTest("Secure page opened", getDriver ());
 
         // verifications
         // Correct url is appeared
@@ -34,7 +36,7 @@ public class PositiveLogInTests extends TestUtilities {
                 "logOutButton is not visible.");
 
         // Successful log in message
-        String expectedSuccessMessage = "You logged into a secure area!";
+        String expectedSuccessMessage = "You logged into a secure are!";
         String actualSuccessMessage = secureAreaPage.getSuccessMessageText();
         Assert.assertTrue(actualSuccessMessage.contains(expectedSuccessMessage),
                 "actualSuccessMessage does not contain expectedSuccessMessage\nexpectedSuccessMessage: "

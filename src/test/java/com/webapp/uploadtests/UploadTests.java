@@ -11,8 +11,10 @@ public class UploadTests extends TestUtilities {
 	public void fileUploadTest(int no, String fileName) {
 		log.info("Starting fileUploadTest #" + no + " for " + fileName);
 
+		log.info ("Thread id of fileUploadTest " + Thread.currentThread().getId());
+		log.info ("Driver Hash code of fileUploadTest " + getDriver ().hashCode ());
 		// open File Uploader Page
-		FileUploaderPage fileUploaderPage = new FileUploaderPage(driver, log);
+		FileUploaderPage fileUploaderPage = new FileUploaderPage(getDriver (), log);
 		fileUploaderPage.openPage();
 
 		// Select file

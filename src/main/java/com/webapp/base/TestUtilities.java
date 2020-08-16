@@ -42,13 +42,13 @@ public class TestUtilities extends BaseTest {
      */
     protected String getBasePath(String testSuiteName, String testName, String testMethodName){
         basePath = System.getProperty("user.dir")
-                + File.separator + "test-output"
-                + File.separator + "screenshots"
-                + File.separator + getTodaysDate()
-                + File.separator + testSuiteName
-                + File.separator + testName
-                + File.separator + testMethodName
-                + File.separator;
+                + File.separator + File.separator + "test-output"
+                + File.separator + File.separator + "screenshots"
+                + File.separator + File.separator + getTodaysDate()
+                + File.separator + File.separator + testSuiteName
+                + File.separator + File.separator + testName
+                + File.separator + File.separator + testMethodName
+                + File.separator + File.separator;
 
         return basePath;
     }
@@ -71,14 +71,16 @@ public class TestUtilities extends BaseTest {
      * Take screenshot from TestListener
      * @return
      */
-    protected void takeScreenshotInFailure(String basePath, String testMethodName, WebDriver driver) {
+    protected String getScreenshotPathInFailure(String basePath, String testMethodName, WebDriver driver) {
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         String path = basePath + "Failed screenshot- "+ getSystemTime() + testMethodName + ".png";
+
         try {
             FileUtils.copyFile(scrFile, new File(path));
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return path;
     }
 
     /**
@@ -95,10 +97,12 @@ public class TestUtilities extends BaseTest {
         return (new SimpleDateFormat("HHmmssSSS").format(new Date()));
     }
 
-    /** Get logs from browser console */
+    /**
+     * Get logs from browser console
+     */
     protected List<LogEntry> getBrowserLogs() {
-        LogEntries log = driver.manage().logs().get("browser");
-        List<LogEntry> logList = log.getAll();
+       LogEntries log = getDriver ().manage().logs().get("browser");
+       List<LogEntry> logList = log.getAll();
         return logList;
     }
 }

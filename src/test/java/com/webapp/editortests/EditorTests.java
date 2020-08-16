@@ -12,7 +12,7 @@ public class EditorTests extends TestUtilities {
 	public void defaultEditorValueTest() {
 
 		// open main page
-		WelcomePage welcomePage = new WelcomePage(driver, log);
+		WelcomePage welcomePage = new WelcomePage(getDriver (), log);
 		welcomePage.openPage();
 		
 		// Scroll to the bottom

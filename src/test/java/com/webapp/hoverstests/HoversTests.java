@@ -12,7 +12,7 @@ public class HoversTests extends TestUtilities {
 		log.info("Starting user2ProfileTest");
 
 		// Open HoversPage
-		HoversPage hoversPage = new HoversPage(driver, log);
+		HoversPage hoversPage = new HoversPage(getDriver (), log);
 		hoversPage.openPage();
 
 		// Open User 2 profile
