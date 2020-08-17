@@ -1,6 +1,6 @@
-23:33:24.603 [TestNG-test=AlertsTests-2] INFO  AlertsTests - Close driver
-23:33:24.656 [TestNG-test=AlertsTests-1] INFO  AlertsTests - [Test jsAlertTest failed]
-23:33:24.657 [TestNG-test=AlertsTests-1] INFO  AlertsTests - Driver hash code for screenshot 1862994363
-23:33:24.732 [TestNG-test=AlertsTests-3] INFO  AlertsTests - Result text: You entered: Hello Alert, it's Nadeera here
-23:33:25.066 [TestNG-test=AlertsTests-1] INFO  AlertsTests - Close driver
-23:33:25.732 [TestNG-test=AlertsTests-3] INFO  AlertsTests - [Test jsPromptTest passed]
+23:56:47.973 [TestNG-PoolService-1] INFO  negativeLogInTest-FF - Close driver
+23:56:48.003 [TestNG-PoolService-4] INFO  negativeLogInTest-CH - [Test negativeLogInTest passed]
+23:56:48.004 [TestNG-PoolService-4] INFO  negativeLogInTest-CH - Close driver
+23:56:48.259 [TestNG-PoolService-0] INFO  negativeLogInTest-CH - [Test negativeLogInTest passed]
+23:56:48.260 [TestNG-PoolService-0] INFO  negativeLogInTest-CH - Close driver
+23:56:48.950 [TestNG-tests-2] INFO  negativeLogInTest-FF - [ALL negativeLogInTest-FF FINISHED]

@@ -18,6 +18,6 @@ public class ExtentReportManager {
         extent.attachReporter(reporter);
         extent.setSystemInfo("Tester", System.getProperty("user.name"));
         return extent;
-    }
 
+    }
 }

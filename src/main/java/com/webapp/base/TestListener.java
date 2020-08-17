@@ -25,42 +25,42 @@ public class TestListener implements ITestListener {
 
     ExtentReports extent = ExtentReportManager.getReporter ();
     ExtentTest test;
-    ThreadLocal<ExtentTest> ExtentTest = new ThreadLocal<ExtentTest>();
+    ThreadLocal<ExtentTest> ExtentTest = new ThreadLocal<ExtentTest> ();
 
     @Override
     public void onTestStart(ITestResult result) {
-        //this.testMethodName = result.getMethod().getMethodName();
-        log.info("[Starting " + result.getMethod().getMethodName() + "]");
-        test = extent.createTest (result.getMethod().getMethodName());
+        //this.testMethodName=result.getMethod().getMethodName();
+        log.info ("[Starting " + result.getMethod ().getMethodName () + "]");
+        test = extent.createTest (result.getMethod ().getMethodName (), (String) result.getTestContext ().getAttribute ("browser"));
         ExtentTest.set (test);
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        log.info("[Test " + result.getMethod().getMethodName() + " passed]");
+        log.info ("[Test " + result.getMethod ().getMethodName () + " passed]");
         ExtentTest.get ().log (Status.PASS, "Test Passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        log.info("[Test " + result.getMethod().getMethodName() + " failed]");
-        //WebDriver driver = (WebDriver) result.getTestContext ().getAttribute ("WebDriver");
-        Object currentClass = result.getInstance();
-        WebDriver driver = ((BaseTest) currentClass).getDriver();
-        log.info ("Driver hash code for screenshot " + driver.hashCode () );
-        String path = takeScreenshotDuringFailure (testName, result.getMethod().getMethodName(), driver);
-        ExtentTest.get ().fail ("Failure Screenshot", MediaEntityBuilder.createScreenCaptureFromPath (path, result.getMethod().getMethodName()).build ());
+        log.info ("[Test " + result.getMethod ().getMethodName () + " failed]");
+        //WebDriver driver=(WebDriver) result.getTestContext().getAttribute("WebDriver");
+        Object currentClass = result.getInstance ();
+        WebDriver driver = ((BaseTest) currentClass).getDriver ();
+        log.info ("Driver hashcode for screenshot " + driver.hashCode ());
+        String path = takeScreenshotDuringFailure (testName, result.getMethod ().getMethodName (), driver);
+        ExtentTest.get ().fail ("Failure Screenshot", MediaEntityBuilder.createScreenCaptureFromPath (path, result.getMethod ().getMethodName ()).build ());
         ExtentTest.get ().log (Status.FAIL, "Test Failed");
         ExtentTest.get ().fail (result.getThrowable ());
     }
 
     protected String takeScreenshotDuringFailure(String testName, String testMethodName, WebDriver driver) {
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        String path = System.getProperty("user.dir")+"\\Extent Reports\\Screenshots\\" + testName + " - " + testMethodName +".png";
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs (OutputType.FILE);
+        String path = System.getProperty ("user.dir") + "\\Extent Reports\\Screenshots\\" + testName + "-" + testMethodName + ".png";
         try {
-            FileUtils.copyFile(scrFile, new File(path));
+            FileUtils.copyFile (scrFile, new File (path));
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace ();
         }
         return path;
     }
@@ -83,15 +83,15 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        this.testSuiteName = context.getSuite().getName();
-        this.testName = context.getCurrentXmlTest().getName();
-        this.log = LogManager.getLogger(testName);
-        log.info("[TEST " + testName + " STARTED]");
+        this.testSuiteName = context.getSuite ().getName ();
+        this.testName = context.getCurrentXmlTest ().getName ();
+        this.log = LogManager.getLogger (testName);
+        log.info ("[TEST " + testName + " STARTED]");
     }
 
     @Override
     public void onFinish(ITestContext context) {
-        log.info("[ALL " + testName + " FINISHED]");
+        log.info ("[ALL " + testName + " FINISHED]");
         extent.flush ();
         ExtentTest.remove ();
     }
