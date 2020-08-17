@@ -1,4 +1,2 @@
-15:10:17.147 [TestNG-test=AlertsTests-2] INFO  AlertsTests - Close driver
-15:10:17.706 [TestNG-test=AlertsTests-3] INFO  AlertsTests - [Test jsPromptTest passed]
-15:10:17.707 [TestNG-test=AlertsTests-3] INFO  AlertsTests - Close driver
-15:10:18.309 [main] INFO  AlertsTests - [ALL AlertsTests FINISHED]
+23:33:25.733 [TestNG-test=AlertsTests-3] INFO  AlertsTests - Close driver
+23:33:26.334 [main] INFO  AlertsTests - [ALL AlertsTests FINISHED]

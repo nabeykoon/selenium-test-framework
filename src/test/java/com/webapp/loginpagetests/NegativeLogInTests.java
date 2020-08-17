@@ -13,6 +13,8 @@ public class NegativeLogInTests extends TestUtilities {
 
     @Test(priority = 1, dataProvider = "csvReader", dataProviderClass = CsvDataProviders.class)
     public void negativeLogInTest(Map<String, String> testData) {
+        log.info ("Thread id " + testData.get("no") + " - " + Thread.currentThread().getId());
+        log.info ("Driver Hash code " + testData.get("no") + " - " + getDriver ().hashCode ());
         //Data
         String no = testData.get("no");
         String username = testData.get("username");
@@ -30,7 +32,6 @@ public class NegativeLogInTests extends TestUtilities {
 
         // negative login
         loginPage.negativeLogIn(username, password);
-
         // Verification
         String actualErrorMessage = loginPage.getLoginErrorMessage();
         Assert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),

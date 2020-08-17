@@ -17,7 +17,6 @@ public class BaseTest {
     protected String testSuiteName;
     protected String testName;
     protected String testMethodName;
-
     public WebDriver getDriver() {
         return drivers.get ();
     }
@@ -32,7 +31,7 @@ public class BaseTest {
         WebDriver driver = BrowserDriverFactory.createDriver (browser, log);
         drivers.set (driver);
         driver.manage ().window ().maximize ();
-        context.setAttribute ("WebDriver", driver);
+        //context.setAttribute ("WebDriver", driver);
 
         this.testSuiteName = context.getSuite ().getName ();
         this.testName = testName;

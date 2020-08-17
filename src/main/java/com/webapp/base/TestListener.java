@@ -4,21 +4,24 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import java.io.File;
 import java.io.IOException;
 
-public class TestListener extends TestUtilities implements ITestListener {
+public class TestListener implements ITestListener {
 
     Logger log;
     String testSuiteName;
     String testName;
-    String testMethodName;
 
     ExtentReports extent = ExtentReportManager.getReporter ();
     ExtentTest test;
@@ -26,30 +29,40 @@ public class TestListener extends TestUtilities implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        this.testMethodName = result.getMethod().getMethodName();
-        log.info("[Starting " + testMethodName + "]");
-        test = extent.createTest (testMethodName);
+        //this.testMethodName = result.getMethod().getMethodName();
+        log.info("[Starting " + result.getMethod().getMethodName() + "]");
+        test = extent.createTest (result.getMethod().getMethodName());
         ExtentTest.set (test);
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        this.testMethodName = result.getMethod().getMethodName();
-        log.info("[Test " + testMethodName + " passed]");
+        log.info("[Test " + result.getMethod().getMethodName() + " passed]");
         ExtentTest.get ().log (Status.PASS, "Test Passed");
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        log.info("[Test " + testMethodName + " failed]");
-        WebDriver driver = (WebDriver) result.getTestContext ().getAttribute ("WebDriver");
+        log.info("[Test " + result.getMethod().getMethodName() + " failed]");
+        //WebDriver driver = (WebDriver) result.getTestContext ().getAttribute ("WebDriver");
+        Object currentClass = result.getInstance();
+        WebDriver driver = ((BaseTest) currentClass).getDriver();
         log.info ("Driver hash code for screenshot " + driver.hashCode () );
-        String basePath = getBasePath (testSuiteName, testName, testMethodName);
-        String path = getScreenshotPathInFailure (basePath, testMethodName, driver);
-        log.info (path);
+        String path = takeScreenshotDuringFailure (testName, result.getMethod().getMethodName(), driver);
+        ExtentTest.get ().fail ("Failure Screenshot", MediaEntityBuilder.createScreenCaptureFromPath (path, result.getMethod().getMethodName()).build ());
         ExtentTest.get ().log (Status.FAIL, "Test Failed");
-        ExtentTest.get ().fail ("details", MediaEntityBuilder.createScreenCaptureFromPath (path, testMethodName).build ());
         ExtentTest.get ().fail (result.getThrowable ());
+    }
+
+    protected String takeScreenshotDuringFailure(String testName, String testMethodName, WebDriver driver) {
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String path = System.getProperty("user.dir")+"\\Extent Reports\\Screenshots\\" + testName + " - " + testMethodName +".png";
+        try {
+            FileUtils.copyFile(scrFile, new File(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return path;
     }
 
 
@@ -80,5 +93,6 @@ public class TestListener extends TestUtilities implements ITestListener {
     public void onFinish(ITestContext context) {
         log.info("[ALL " + testName + " FINISHED]");
         extent.flush ();
+        ExtentTest.remove ();
     }
 }

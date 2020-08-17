@@ -37,7 +37,7 @@ public class AlertsTests extends TestUtilities {
         sleep (1000);
         // Verifications
         // 1 - Alert text is expected
-        Assert.assertTrue (alertMessage.equals ("I am a JS Alert"),
+        Assert.assertTrue (alertMessage.equals ("I am a JS Aler"),
                 "Alert message is not expected. \nShould be 'I am a JS Alert', but it is '" + alertMessage + "'");
 
         // 2 - Result text is expected
@@ -73,7 +73,7 @@ public class AlertsTests extends TestUtilities {
         sleep (1000);
         // Verifications
         // 1 - Alert text is expected
-        Assert.assertTrue (alertMessage.equals ("I am a JS Confir"),
+        Assert.assertTrue (alertMessage.equals ("I am a JS Confirm"),
                 "Alert message is not expected. \nShould be 'I am a JS Confirm', but it is '" + alertMessage + "'");
 
         // 2 - Result text is expected

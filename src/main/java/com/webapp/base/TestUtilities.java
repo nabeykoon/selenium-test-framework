@@ -21,9 +21,9 @@ public class TestUtilities extends BaseTest {
     //STATIC SLEEP IF REQUIRED FOR DEBUGGING. NOT RECOMMENDED TO USE IN TESTS
     protected void sleep(long millis) {
         try {
-            Thread.sleep(millis);
+            Thread.sleep (millis);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            e.printStackTrace ();
         }
     }
 
@@ -36,73 +36,51 @@ public class TestUtilities extends BaseTest {
         };
     }
 
-    /**
-     * Generate base path to store screenshot
-     * @return
-     */
-    protected String getBasePath(String testSuiteName, String testName, String testMethodName){
-        basePath = System.getProperty("user.dir")
-                + File.separator + File.separator + "test-output"
-                + File.separator + File.separator + "screenshots"
-                + File.separator + File.separator + getTodaysDate()
-                + File.separator + File.separator + testSuiteName
-                + File.separator + File.separator + testName
-                + File.separator + File.separator + testMethodName
-                + File.separator + File.separator;
-
-        return basePath;
-    }
 
     /**
      * Take screenshot from any point of test
+     *
      * @return
      */
     protected void takeScreenshotInTest(String fileName, WebDriver driver) {
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        String path = getBasePath(testSuiteName, testName,testMethodName) + getSystemTime()+ " " + fileName + ".png";
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs (OutputType.FILE);
+        String path = System.getProperty ("user.dir")
+                + File.separator + File.separator + "test-output"
+                + File.separator + File.separator + "screenshots"
+                + File.separator + File.separator + getTodaysDate ()
+                + File.separator + File.separator + testSuiteName
+                + File.separator + File.separator + testName
+                + File.separator + File.separator + testMethodName
+                + File.separator + File.separator +
+                getSystemTime () + " " + fileName + ".png";
         try {
-            FileUtils.copyFile(scrFile, new File(path));
+            FileUtils.copyFile (scrFile, new File (path));
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace ();
         }
     }
 
-    /**
-     * Take screenshot from TestListener
-     * @return
-     */
-    protected String getScreenshotPathInFailure(String basePath, String testMethodName, WebDriver driver) {
-        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        String path = basePath + "Failed screenshot- "+ getSystemTime() + testMethodName + ".png";
-
-        try {
-            FileUtils.copyFile(scrFile, new File(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return path;
-    }
 
     /**
      * Todays date in yyyyMMdd format
      */
     private static String getTodaysDate() {
-        return (new SimpleDateFormat("yyyyMMdd").format(new Date()));
+        return (new SimpleDateFormat ("yyyyMMdd").format (new Date ()));
     }
 
     /**
      * Current time in HHmmssSSS
      */
     private String getSystemTime() {
-        return (new SimpleDateFormat("HHmmssSSS").format(new Date()));
+        return (new SimpleDateFormat ("HHmmssSSS").format (new Date ()));
     }
 
     /**
      * Get logs from browser console
      */
     protected List<LogEntry> getBrowserLogs() {
-       LogEntries log = getDriver ().manage().logs().get("browser");
-       List<LogEntry> logList = log.getAll();
+        LogEntries log = getDriver ().manage ().logs ().get ("browser");
+        List<LogEntry> logList = log.getAll ();
         return logList;
     }
 }
