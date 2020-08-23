@@ -1,5 +1,4 @@
 package com.webapp.base;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +7,8 @@ import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
 
-@Listeners({ com.webapp.base.TestListener.class })
+@Listeners({ com.webapp.base.TestListener.class})
+
 
 public class BaseTest {
     private static final ThreadLocal<WebDriver> drivers = new ThreadLocal<WebDriver> ();
@@ -32,7 +32,7 @@ public class BaseTest {
         drivers.set (driver);
         driver.manage ().window ().maximize ();
         //context.setAttribute ("WebDriver", driver);
-
+        context.setAttribute ("browser", browser);
         this.testSuiteName = context.getSuite ().getName ();
         this.testName = testName;
         this.testMethodName = method.getName ();

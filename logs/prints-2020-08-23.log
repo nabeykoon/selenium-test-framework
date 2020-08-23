@@ -1,2 +1,6 @@
-21:10:01.592 [main] INFO  PositiveLogInTest - Getting value of cookie rack.session
-21:10:01.599 [main] INFO  PositiveLogInTest - Session cookie: BAh7CkkiD3Nlc3Npb25faWQGOgZFVEkiRWI3MjZiZDI2YmRiZTc3MzAxZWM0%0AMDhjODBiMGZmOWZmYzM5YWZmYTA5ZTUwMDNlZWQ4YTNiMDNhMDE4MDAwYTYG%0AOwBGSSIJY3NyZgY7AEZJIiUyNGIxMDlmODQxMjM3ODdiZGFlNzhlOTg1ZWZi%0AM2E1ZAY7AEZJIg10cmFja2luZwY7AEZ7B0kiFEhUVFBfVVNFUl9BR0VOVAY7%0AAFRJIi1hZTFkMzY4ODg1NDQ0YjM4ZmQ4NjQzMjE0MGNjMWNjN2RiYjdlNTQ4%0ABjsARkkiGUhUVFBfQUNDRVBUX0xBTkdVQUdFBjsAVEkiLWQ0ZTdkMzNmNGVi%0ANzNiY2U4ZmY3MDdjODBiNjlhYzU3ZWU1YzlmYmMGOwBGSSIKZmxhc2gGOwBG%0AewBJIg11c2VybmFtZQY7AEZJIg10b21zbWl0aAY7AFQ%3D%0A--3259537e1b1c6c08556f7b4c360dce371878479b
+23:13:46.826 [main] INFO  DropdownTests-firefoxHeadless - Page opened!
+23:13:46.827 [main] INFO  DropdownTests-firefoxHeadless - Clicking Dropdown link on Welcome Page
+23:13:47.338 [main] INFO  DropdownTests-firefoxHeadless - Selecting option 2 from dropdown
+23:13:47.614 [main] INFO  DropdownTests-firefoxHeadless - Option 2 is selected in dropdown
+23:13:47.614 [main] INFO  DropdownTests-firefoxHeadless - [Test optionTwoTest passed]
+23:13:47.615 [main] INFO  DropdownTests-firefoxHeadless - Close driver
