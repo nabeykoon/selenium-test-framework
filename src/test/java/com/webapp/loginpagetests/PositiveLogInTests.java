@@ -4,6 +4,7 @@ import com.webapp.base.TestUtilities;
 import com.webapp.pages.LoginPage;
 import com.webapp.pages.SecureAreaPage;
 import com.webapp.pages.WelcomePage;
+import org.openqa.selenium.Cookie;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -23,9 +24,18 @@ public class PositiveLogInTests extends TestUtilities {
         LoginPage loginPage = welcomePage.clickFormAuthenticationLink();
         takeScreenshotInTest("Login page opened", getDriver ());
 
+        Cookie ck = new Cookie("username", "tomsmith", "the-internet.herokuapp.com", "/", null);
+        loginPage.setCookie(ck);
+
         // Log in
         SecureAreaPage secureAreaPage = loginPage.logIn("tomsmith", "SuperSecretPassword!");
         takeScreenshotInTest("Secure page opened", getDriver ());
+
+        // Get cookies
+        String username = secureAreaPage.getCookie("username");
+        log.info("Username cookie: " + username);
+        String session = secureAreaPage.getCookie("rack.session");
+        log.info("Session cookie: " + session);
 
         // verifications
         // Correct url is appeared
@@ -36,7 +46,7 @@ public class PositiveLogInTests extends TestUtilities {
                 "logOutButton is not visible.");
 
         // Successful log in message
-        String expectedSuccessMessage = "You logged into a secure are!";
+        String expectedSuccessMessage = "You logged into a secure area!";
         String actualSuccessMessage = secureAreaPage.getSuccessMessageText();
         Assert.assertTrue(actualSuccessMessage.contains(expectedSuccessMessage),
                 "actualSuccessMessage does not contain expectedSuccessMessage\nexpectedSuccessMessage: "

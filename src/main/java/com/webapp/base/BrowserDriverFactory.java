@@ -15,24 +15,30 @@ public class BrowserDriverFactory {
         this.log = log;
     }
 
+
     public static WebDriver createDriver(String browser, Logger log) {
         // Create driver
         log.info ("Create driver: " + browser);
+        WebDriver driver;
+        switch (browser) {
 
-        if (browser.equals ("chrome")) {
-            //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-            WebDriverManager.chromedriver ().setup ();
-            return new ChromeDriver ();
-        } else if (browser.equals ("firefox")) {
-
-            //System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
-            WebDriverManager.firefoxdriver ().setup ();
-            return new FirefoxDriver ();
-        } else {
-            System.out.println ("Do not know how to start: " + browser + ", starting chrome.");
-            WebDriverManager.chromedriver ().setup ();
-            return new ChromeDriver ();
+            case "chrome":
+                //System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+                WebDriverManager.chromedriver ().setup ();
+                driver = new ChromeDriver ();
+                break;
+            case "firefox":
+                //System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver.exe");
+                WebDriverManager.firefoxdriver ().setup ();
+                driver = new FirefoxDriver ();
+                break;
+            default:
+                System.out.println ("Do not know how to start: " + browser + ", starting chrome.");
+                WebDriverManager.chromedriver ().setup ();
+                driver = new ChromeDriver ();
+                break;
         }
+        return driver;
     }
 }
 
