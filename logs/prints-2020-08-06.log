@@ -1,7 +1,0 @@
-01:16:00.394 [main] INFO  HorizontalSliderTests-FF - Page opened!
-01:16:02.396 [main] INFO  HorizontalSliderTests-FF - Moving slider to 3.5
-01:16:04.832 [main] INFO  HorizontalSliderTests-FF - Slider value is 5
-01:16:04.833 [main] INFO  HorizontalSliderTests-FF - Close driver
-01:16:20.507 [main] INFO  HorizontalSliderTests-CH - Create driver: chrome
-01:16:26.088 [main] INFO  HorizontalSliderTests-CH - Starting sliderTest
-01:16:26.111 [main] INFO  HorizontalSliderTests-CH - Opening page: http://the-internet.herokuapp.com/horizontal_slider

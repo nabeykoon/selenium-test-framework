@@ -1,7 +1,0 @@
-00:52:48.426 [main] INFO  DragAndDropTests-CH - Column B Text: A
-00:52:48.433 [main] INFO  DragAndDropTests-CH - Close driver
-00:52:49.024 [main] INFO  DragAndDropTests-FF - Create driver: firefox
-00:52:53.515 [main] INFO  DragAndDropTests-FF - Starting dragAToBTest
-00:52:53.516 [main] INFO  DragAndDropTests-FF - Opening page: http://the-internet.herokuapp.com/drag_and_drop
-00:52:59.306 [main] INFO  DragAndDropTests-FF - Page opened!
-00:52:59.306 [main] INFO  DragAndDropTests-FF - Drag and drop A box on B box

@@ -1,6 +1,0 @@
-18:48:23.377 [TestNG-test=UploadTests-1] INFO  UploadTests - Close driver
-18:48:23.965 [TestNG-test=UploadTests-1] INFO  UploadTests - Create driver: chrome
-18:48:29.123 [TestNG-test=UploadTests-1] INFO  UploadTests - Starting fileUploadTest #3 for text.txt
-18:48:29.123 [TestNG-test=UploadTests-1] INFO  UploadTests - Opening page: http://the-internet.herokuapp.com/upload
-18:48:33.994 [TestNG-test=UploadTests-1] INFO  UploadTests - Page opened!
-18:48:33.994 [TestNG-test=UploadTests-1] INFO  UploadTests - Selecting 'text.txt' file from Files folder
