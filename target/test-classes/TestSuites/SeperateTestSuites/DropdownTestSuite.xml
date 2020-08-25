@@ -3,6 +3,7 @@
 <suite name="DropdownTestSuite" verbose="1">
 
 	<test name="DropdownTests">
+		<parameter name="browser" value="FIREFOX"></parameter>
 		<classes>
 			<class name="com.webapp.dropdowntests.DropdownTest" />
 		</classes>

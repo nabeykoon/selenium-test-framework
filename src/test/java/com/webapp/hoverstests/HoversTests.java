@@ -19,7 +19,7 @@ public class HoversTests extends TestUtilities {
 		hoversPage.openUserProfile(2);
 
 		// Verify correct user profile opened
-		Assert.assertTrue(hoversPage.getCurrentUrl().contains("/users/1"),
+		Assert.assertTrue(hoversPage.getCurrentUrl().contains("/users/2"),
 				"Url of opened page is not expected User 1 page url");
 	}
 }

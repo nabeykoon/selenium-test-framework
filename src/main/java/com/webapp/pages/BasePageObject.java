@@ -62,7 +62,7 @@ public class BasePageObject {
      * Click on element with given locator when its visible
      */
     protected void click(By locator) {
-        waitForVisibilityOf(locator, 5);
+        waitForVisibilityOf(locator, 10);
         find(locator).click();
     }
 
@@ -70,7 +70,7 @@ public class BasePageObject {
      * Type given text into element with given locator
      */
     protected void type(String text, By locator) {
-        waitForVisibilityOf(locator, 5);
+        waitForVisibilityOf(locator, 10);
         find(locator).sendKeys(text);
     }
 

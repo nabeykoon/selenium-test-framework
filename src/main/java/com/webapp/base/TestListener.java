@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.Augmenter;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -47,6 +48,8 @@ public class TestListener implements ITestListener {
         //WebDriver driver=(WebDriver) result.getTestContext().getAttribute("WebDriver");
         Object currentClass = result.getInstance ();
         WebDriver driver = ((BaseTest) currentClass).getDriver ();
+      // In case of returning RemoteWebDriver: Use Augmenter class to enhances the RemoteWebDriver by adding to it various interfaces including the TakesScreenshot interface.
+        driver = new Augmenter ().augment(driver);
         log.info ("Driver hashcode for screenshot " + driver.hashCode ());
         String path = takeScreenshotDuringFailure (testName, result.getMethod ().getMethodName (), driver);
         ExtentTest.get ().fail ("Failure Screenshot", MediaEntityBuilder.createScreenCaptureFromPath (path, result.getMethod ().getMethodName ()).build ());
