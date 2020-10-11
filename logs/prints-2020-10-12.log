@@ -1,0 +1,6 @@
+00:16:33.748 [TestNG-test=AlertsTests-1] INFO  AlertsTests - Clicking on 'Click for JS Alert' button to open alert
+00:16:34.855 [TestNG-test=AlertsTests-1] INFO  AlertsTests - Alert says: I am a JS Alert
+00:16:34.855 [TestNG-test=AlertsTests-1] INFO  AlertsTests - Switching to alert and pressing OK
+00:16:34.899 [TestNG-test=AlertsTests-1] INFO  AlertsTests - Result text: You successfuly clicked an alert
+00:16:35.900 [TestNG-test=AlertsTests-1] INFO  AlertsTests - [Test jsAlertTest passed]
+00:16:35.900 [TestNG-test=AlertsTests-1] INFO  AlertsTests - Close driver
